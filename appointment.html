@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital Appointment Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+
+       body {
+    font-family: 'Dosis', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: var(--pastel-green);
+    }
+
+    :root{
+ --pastel-green :  #C7E6C9;
+ --dark-green: #579981;
+ --transparent: #F1F7ED;
+ --sea-glass: #E0F3E1;
+ --menta: #99D5BF;
+ --black: rgb(76, 76, 75);
+ --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ --light-black:#777;
+
+}
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: var(--transparent);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: var(--dark-green);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #71cfad;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hospital Appointment Form</h1>
+  <div class="container">
+    <form id="appointmentForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <div id="nameError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <div id="emailError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <div id="phoneError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+        <div id="addressError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="pets">Preferred Pet:</label>
+        <input type="checkbox" id="dog" name="pets" value="dog">
+        <label for="dog">Dog</label>
+        <input type="checkbox" id="cat" name="pets" value="cat">
+        <label for="cat">Cat</label>
+        <input type="checkbox" id="other" name="pets" value="other">
+        <label for="other">Other</label>
+        <div id="petsError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+          <option value="">Select Department</option>
+          <option value="general-veterinary-care">General Veterinary Care</option>
+          <option value="cardiology">Cardiology</option>
+          <option value="internal-medicine">Internal Medicine</option>
+          <option value="ophthalmology">Ophthalmology</option>
+          <option value="orthopedics">Orthopedics</option>
+          <option value="surgery">Surgery</option>
+          <option value="dentistry">Dentistry</option>
+        </select>
+        <div id="departmentError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="bread">Bread Preference:</label>
+        <input type="text" id="bread" name="bread">
+        <div id="breadError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" name="date" required>
+        <div id="dateError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </div>
+
+  <script>
+     const form = document.getElementById('appointmentForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const addressInput = document.getElementById('address');
+    const petsInputs = document.querySelectorAll('input[name="pets"]');
+    const departmentInput = document.getElementById('department');
+    const breadInput = document.getElementById('bread');
+    const dateInput = document.getElementById('date');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (validateForm()) {
+        form.reset();
+        alert('Appointment request submitted successfully!');
+      }
+    });
+
+    function validateForm() {
+      let isValid = true;
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const addressError = document.getElementById('addressError');
+      const petsError = document.getElementById('petsError');
+      const departmentError = document.getElementById('departmentError');
+      const breadError = document.getElementById('breadError');
+      const dateError = document.getElementById('dateError');
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      phoneError.textContent = '';
+      addressError.textContent = '';
+      petsError.textContent = '';
+      departmentError.textContent = '';
+      breadError.textContent = '';
+      dateError.textContent = '';
+
+      if (nameInput.value.trim() === '') {
+        nameError.textContent = 'Name is required';
+        isValid = false;
+      }
+
+      if (emailInput.value.trim() === '') {
+        emailError.textContent = 'Email is required';
+        isValid = false;
+      } else if (!isValidEmail(emailInput.value)) {
+        emailError.textContent = 'Please enter a valid email address';
+        isValid = false;
+      }
+
+      if (phoneInput.value.trim() === '') {
+        phoneError.textContent = 'Phone is required';
+        isValid = false;
+      } else if (!isValidPhone(phoneInput.value)) {
+        phoneError.textContent = 'Please enter a valid phone number';
+        isValid = false;
+      }
+
+      if (addressInput.value.trim() === '') {
+        addressError.textContent = 'Address is required';
+        isValid = false;
+      }
+
+      let petsSelected = false;
+      petsInputs.forEach(function (input) {
+        if (input.checked) {
+          petsSelected = true;
+        }
+      });
+
+      if (!petsSelected) {
+        petsError.textContent = 'Please select a preferred pet';
+        isValid = false;
+      }
+
+      if (departmentInput.value === '') {
+        departmentError.textContent = 'Department selection is required';
+        isValid = false;
+      }
+
+      if (breadInput.value.trim() === '') {
+        breadInput.value = 'Not specified';
+      }
+
+      if (dateInput.value === '') {
+        dateError.textContent = 'Appointment date is required';
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function isValidEmail(email) {
+      // Simple email validation using regular expression
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    function isValidPhone(phone) {
+      // Simple phone number validation using regular expression
+      const phonePattern = /^\d{10}$/;
+      return phonePattern.test(phone);
+    }
+  </script>
+</body>
+</html>

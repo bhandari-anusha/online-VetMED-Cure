@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+        * {
+  margin: 0;
+  font-family: 'Dosis', sans-serif;
+}
+
+:root{
+ --pastel-green :  #C7E6C9;
+ --dark-green: #579981;
+ --transparent: #F1F7ED;
+ --sea-glass: #E0F3E1;
+ --menta: #99D5BF;
+ --black: rgb(76, 76, 75);
+ --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ --light-black:#777;
+
+}
+.navbar-brand{
+    color:var(--dark-green) ;
+    padding: 0 24px;
+    margin-left: 16px;
+}
+.nav-item{
+    padding: 0 14px;
+}
+.navbar-nav .nav-link:hover {
+    border-bottom: .08rem solid var(--black);
+    padding-bottom: .2rem;
+}
+.navbar-nav .nav-link{
+    font-size: 20px;
+    
+}
+.navbar-nav .btn{
+    background-color: var(--dark-green);
+    color: var(--transparent);
+}
+.navbar-nav .btn:hover{
+    background-color: var(--menta);
+    color: var(--black);
+    
+}
+
+.navbar-nav .nav-icon{
+    font-size: 25px;
+    padding: 4px;
+}
+.navbar-nav .nav-icon i{
+    color: var(--black);
+}
+.navbar-nav .nav-icon i:hover{
+    color: var(--dark-green);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container h2 {
+  color: var(--black);
+  margin: 10px;
+}
+
+.registartion-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  color: var(--black);
+  font-size: 18px;
+  background-color: var(--pastel-green);
+  padding: 20px;
+  
+}
+
+.registartion-form input,
+.registartion-form select,
+.registartion-form textarea {
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.registartion-form input:focus,
+.registartion-form textarea:focus {
+  box-shadow: 3px 3px 10px var(--box-shadow), -3px -3px 10px var(--box-shadow);
+}
+
+.registartion-form .submit {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 20px;
+  color: var(--transparent);
+  background-color:  var(--dark-green);
+  border-radius: 5px;
+}
+
+.registartion-form .submit:hover {
+  box-shadow: 3px 3px 6px ;
+}
+    </style>
+</head>
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  rgba(199, 230, 201, 0.6);">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="home.html">VetMED</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+           <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto me-0">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item" style="margin-right: 14px;">
+                <a href="#"><button class="btn btn-outline-success me-2" style="font-size: 20px;" type="button">Get Appointment</button></a>
+              </li>
+              <li class="nav-icon " style="margin-right: 14px;">
+                <a href="login.html"><i class="fas fa-user "></i></a>
+               </li> 
+              
+            </ul>
+          </div>
+        </div>
+      </nav> -->
+    <div class="container">
+        <h2 style="padding: 10px; margin-top: 50px; " >Register Now</h2>
+        <form name="registration" class="registartion-form" onsubmit="return formValidation()">
+          <table>
+            <tr>
+              <td><label for="name">Name:</label></td>
+              <td><input type="text" name="name" id="name" placeholder="your name"></td>
+            </tr>
+            <tr>
+                <td><label for="name">Animal's Name:</label></td>
+                <td><input type="text" name="name" id="name" placeholder="Your dog's name"></td>
+              </tr>
+            <tr>
+              <td><label for="email">Email:</label></td>
+              <td><input type="text" name="email" id="email" placeholder="your email"></td>
+            </tr>
+            <tr>
+              <td><label for="password">Password:</label></td>
+              <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+              <td><label for="phoneNumber">Phone Number:</label></td>
+              <td><input type="number" name="phoneNumber" id="phoneNumber"></td>
+            </tr>
+            <tr>
+              <td><label for="gender">Gender:</label></td>
+              <td>Dog: <input type="radio" name="gender" value="male">
+                Cat: <input type="radio" name="gender" value="female">
+                Other: <input type="radio" name="gender" value="other"></td>
+            </tr>
+            <tr>
+              <td><label for="language">language</label></td>
+              <td>
+                <select name="language" id="language">
+                  <option value="">Select language</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Russian">Russian</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="zipcode">Zip Code:</label></td>
+              <td><input type="number" name="zipcode" id="zipcode"></td>
+            </tr>
+            <tr>
+              <td><label for="about">Problem:</label></td>
+              <td><textarea name="about" id="about" placeholder="Write about your concern..."></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2"><input type="submit" class="submit" value="Register" /></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <script>
+        // Select all input elements for varification
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const phoneNumber = document.getElementById("phoneNumber");
+const gender = document.registration;
+const language = document.getElementById("language");
+const zipcode = document.getElementById("zipcode");
+
+// function for form varification
+function formValidation() {
+  
+  // checking name length
+  if (name.value.length < 2 || name.value.length > 20) {
+    alert("Name length should be more than 2 and less than 21");
+    name.focus();
+    return false;
+  }
+  // checking email
+  if (email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+    alert("Please enter a valid email!");
+    email.focus();
+    return false;
+  }
+  // checking password
+  if (!password.value.match(/^.{5,15}$/)) {
+    alert("Password length must be between 5-15 characters!");
+    password.focus();
+    return false;
+  }
+  // checking phone number
+  if (!phoneNumber.value.match(/^[1-9][0-9]{9}$/)) {
+    alert("Phone number must be 10 characters long number and first digit can't be 0!");
+    phoneNumber.focus();
+    return false;
+  }
+  // checking gender
+  if (gender.gender.value === "") {
+    alert("Please select your gender!");
+    return false;
+  }
+  // checking language
+  if (language.value === "") {
+    alert("Please select your language!")
+    return false;
+  }
+  // checking zip code
+  if (!zipcode.value.match(/^[0-9]{6}$/)) {
+    alert("Zip code must be 6 characters long number!");
+    zipcode.focus();
+    return false;
+  }
+  return true;
+}
+      </script>
+</body>
+</html>
